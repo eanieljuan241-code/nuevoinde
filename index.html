@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pollo Frito en Colombia – El Sabor que Nos Une</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson:    #C0392B;
+      --crimson-dk: #96220C;
+      --gold:       #E8A020;
+      --gold-lt:    #F5C842;
+      --cream:      #FFF7ED;
+      --sand:       #F0E4CC;
+      --brown:      #2C1A0E;
+      --brown-md:   #5C3D1E;
+      --white:      #FFFFFF;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body:    'Poppins', sans-serif;
+      --font-mono:    'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ─────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--sand); }
+    ::-webkit-scrollbar-thumb { background: var(--crimson); border-radius: 3px; }
+
+    /* ── NAV ───────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 64px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.4);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--gold-lt);
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--sand);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-lt); }
+
+    .nav-cta {
+      background: var(--crimson);
+      color: var(--white) !important;
+      padding: 0.45rem 1.2rem;
+      border-radius: 4px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--crimson-dk) !important; }
+
+    /* ── HERO ──────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8vw 5vw 8vw 8vw;
+      background: var(--brown);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      line-height: 1.0;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline em {
+      color: var(--gold-lt);
+      font-style: italic;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--sand);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.15s;
+      border-radius: 4px;
+    }
+
+    .btn-primary:hover { background: var(--crimson-dk); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-lt);
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--gold);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.2s, color 0.2s, transform 0.15s;
+      border-radius: 4px;
+    }
+
+    .btn-outline:hover { border-color: var(--gold-lt); color: var(--white); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold-lt);
+    }
+
+    .hero-stat-lbl {
+      font-size: 0.78rem;
+      color: var(--sand);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .hero-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(44,26,14,.5) 0%, transparent 60%);
+    }
+
+    /* ── BANNER STRIPE ─────────────────────────── */
+    .stripe {
+      background: var(--crimson);
+      padding: 0.75rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .stripe-inner {
+      display: inline-flex;
+      animation: marquee 18s linear infinite;
+      gap: 3rem;
+    }
+
+    .stripe-inner span {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--cream);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION COMMONS ───────────────────────── */
+    section { padding: 6rem 8vw; }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--crimson);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h2.section-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      color: var(--brown);
+      margin-bottom: 1.25rem;
+    }
+
+    h2.section-title em { font-style: italic; color: var(--crimson); }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--brown-md);
+      max-width: 600px;
+      line-height: 1.75;
+    }
+
+    /* ── HISTORIA ──────────────────────────────── */
+    .historia {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+      align-items: center;
+    }
+
+    .historia-img-wrap {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 480px;
+      background: var(--sand);
+    }
+
+    .historia-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .historia-badge {
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      background: var(--crimson);
+      color: var(--white);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .historia-badge small {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 400;
+      opacity: 0.85;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .historia-text p {
+      color: var(--brown-md);
+      margin-bottom: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .historia-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--sand);
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .tl-year {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--crimson);
+    }
+
+    .tl-desc {
+      font-size: 0.9rem;
+      color: var(--brown-md);
+      line-height: 1.6;
+    }
+
+    /* ── CIFRAS ────────────────────────────────── */
+    .cifras {
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .cifras h2.section-title { color: var(--cream); }
+    .cifras h2.section-title em { color: var(--gold-lt); }
+    .cifras .section-lead { color: var(--sand); }
+    .cifras .section-tag { color: var(--gold); }
+
+    .cifras-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 3.5rem;
+      border: 2px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .cifra-card {
+      background: rgba(255,255,255,.04);
+      padding: 2.5rem 2rem;
+      border-right: 2px solid rgba(255,255,255,.08);
+      transition: background 0.2s;
+    }
+
+    .cifra-card:last-child { border-right: none; }
+    .cifra-card:hover { background: rgba(232,160,32,.06); }
+
+    .cifra-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cifra-num {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--gold-lt);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .cifra-label {
+      font-size: 0.88rem;
+      color: var(--sand);
+      line-height: 1.5;
+    }
+
+    .cifra-note {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--gold);
+      margin-top: 0.5rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── MARCAS ────────────────────────────────── */
+    .marcas { background: var(--cream); }
+
+    .marcas-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .marcas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .marca-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--sand);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .marca-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(44,26,14,.12);
+    }
+
+    .marca-card-img {
+      height: 200px;
+      background: var(--sand);
+      overflow: hidden;
+    }
+
+    .marca-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .marca-card:hover .marca-card-img img { transform: scale(1.04); }
+
+    .marca-card-body { padding: 1.5rem; }
+
+    .marca-badge {
+      display: inline-block;
+      background: var(--sand);
+      color: var(--brown-md);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .marca-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .marca-desc {
+      font-size: 0.88rem;
+      color: var(--brown-md);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .marca-presencia {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--crimson);
+      font-weight: 500;
+    }
+
+    /* ── RECETA ────────────────────────────────── */
+    .receta {
+      background: var(--sand);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 5vw;
+      align-items: start;
+    }
+
+    .receta-ingredients {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem;
+      border-left: 4px solid var(--crimson);
+    }
+
+    .receta-ingredients h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--brown);
+    }
+
+    .ingredient-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ingredient-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--sand);
+      font-size: 0.9rem;
+      color: var(--brown-md);
+    }
+
+    .ingredient-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .ingredient-amt {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--crimson);
+      font-weight: 500;
+    }
+
+    .receta-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      background: var(--crimson);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 0.92rem;
+      color: var(--brown-md);
+      line-height: 1.7;
+      padding-top: 0.5rem;
+    }
+
+    /* ── REGIONES ──────────────────────────────── */
+    .regiones { background: var(--white); }
+
+    .regiones-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .region-card {
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      height: 280px;
+      background: var(--sand);
+      cursor: default;
+    }
+
+    .region-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .region-card:hover img { transform: scale(1.05); }
+
+    .region-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,26,14,.85) 0%, rgba(44,26,14,.1) 60%);
+    }
+
+    .region-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem 1.75rem;
+    }
+
+    .region-city {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .region-specialty {
+      font-size: 0.85rem;
+      color: var(--gold-lt);
+      margin-bottom: 0.5rem;
+    }
+
+    .region-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.5;
+    }
+
+    /* ── PRECIOS ───────────────────────────────── */
+    .precios {
+      background: var(--brown);
+      color: var(--cream);
+    }
+
+    .precios h2.section-title { color: var(--cream); }
+    .precios h2.section-title em { color: var(--gold-lt); }
+    .precios .section-tag { color: var(--gold); }
+    .precios .section-lead { color: var(--sand); }
+
+    .precios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .precio-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: background 0.2s, border-color 0.2s;
+      position: relative;
+    }
+
+    .precio-card:hover {
+      background: rgba(232,160,32,.08);
+      border-color: rgba(232,160,32,.3);
+    }
+
+    .precio-card.destacado {
+      border-color: var(--gold);
+      background: rgba(232,160,32,.1);
+    }
+
+    .precio-destacado-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: var(--brown);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .precio-tipo {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .precio-nombre {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .precio-rango {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--gold-lt);
+      margin-bottom: 0.5rem;
+    }
+
+    .precio-por {
+      font-size: 0.8rem;
+      color: var(--sand);
+      margin-bottom: 1.25rem;
+    }
+
+    .precio-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .precio-items li {
+      font-size: 0.88rem;
+      color: var(--sand);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .precio-items li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── TESTIMONIOS ───────────────────────────── */
+    .testimonios { background: var(--cream); }
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .test-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2rem;
+      border-top: 3px solid var(--crimson);
+      transition: transform 0.2s;
+    }
+
+    .test-card:hover { transform: translateY(-3px); }
+
+    .test-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--brown);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .test-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .test-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--sand);
+      flex-shrink: 0;
+    }
+
+    .test-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    .test-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--brown);
+    }
+
+    .test-role {
+      font-size: 0.78rem;
+      color: var(--brown-md);
+    }
+
+    .test-stars {
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── CTA / CONTACTO ────────────────────────── */
+    .cta-section {
+      background: var(--crimson);
+      text-align: center;
+      padding: 7rem 8vw;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+
+    .cta-section p {
+      color: rgba(255,255,255,.82);
+      font-size: 1.05rem;
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .cta-form {
+      display: flex;
+      gap: 0.75rem;
+      max-width: 520px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-form input {
+      flex: 1;
+      min-width: 240px;
+      padding: 0.85rem 1.25rem;
+      border: 2px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.1);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .cta-form input::placeholder { color: rgba(255,255,255,.55); }
+    .cta-form input:focus { border-color: var(--gold-lt); }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--crimson);
+      padding: 0.85rem 2rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-white:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+    /* ── FOOTER ────────────────────────────────── */
+    footer {
+      background: #1a0e07;
+      color: var(--sand);
+      padding: 4rem 8vw 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--gold-lt);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.88rem;
+      color: rgba(240,228,204,.6);
+      line-height: 1.6;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col ul li { margin-bottom: 0.6rem; }
+
+    .footer-col ul li a {
+      font-size: 0.88rem;
+      color: rgba(240,228,204,.65);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover { color: var(--gold-lt); }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(240,228,204,.4);
+    }
+
+    /* ── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 1000px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-copy { padding: 5rem 6vw; order: 2; }
+      .hero-image { height: 50vh; order: 1; }
+      .historia { grid-template-columns: 1fr; }
+      .cifras-grid { grid-template-columns: repeat(2, 1fr); }
+      .marcas-grid { grid-template-columns: repeat(2, 1fr); }
+      .receta { grid-template-columns: 1fr; }
+      .regiones-grid { grid-template-columns: 1fr; }
+      .precios-grid { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 4rem 5vw; }
+      .cifras-grid { grid-template-columns: 1fr; }
+      .marcas-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════ -->
+  <nav>
+    <a href="#" class="nav-logo">🍗 PolloCol</a>
+    <ul class="nav-links">
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#cifras">Mercado</a></li>
+      <li><a href="#marcas">Marcas</a></li>
+      <li><a href="#receta">Receta</a></li>
+      <li><a href="#regiones">Regiones</a></li>
+      <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="hero-tag">// Colombia · Sabor · Tradición</p>
+      <h1 class="hero-headline">El pollo frito que<em> nos conquista</em></h1>
+      <p class="hero-sub">
+        Desde las fritangas de barrio hasta las grandes cadenas nacionales, el pollo frito es el rey de la gastronomía callejera colombiana — crujiente, sabroso y lleno de identidad.
+      </p>
+      <div class="hero-btns">
+        <a href="#marcas" class="btn-primary">Ver las marcas</a>
+        <a href="#receta" class="btn-outline">Receta tradicional</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">$4.2B</div>
+          <div class="hero-stat-lbl">Mercado anual COP</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">+12K</div>
+          <div class="hero-stat-lbl">Puntos de venta</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">68%</div>
+          <div class="hero-stat-lbl">Colombianos lo consumen semanalmente</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=1200&h=900&fit=crop&auto=format" alt="Pollo frito crujiente dorado" />
+      <div class="hero-image-overlay"></div>
+    </div>
+  </header>
+
+  <!-- ══ STRIPE ANIMADA ══════════════════════════ -->
+  <div class="stripe">
+    <div class="stripe-inner">
+      <span>Pollo Frito Colombiano</span>
+      <span>✦</span>
+      <span>Crujiente y Dorado</span>
+      <span>✦</span>
+      <span>Tradición desde 1950</span>
+      <span>✦</span>
+      <span>De Norte a Sur</span>
+      <span>✦</span>
+      <span>El Sabor Que Nos Une</span>
+      <span>✦</span>
+      <span>Kokoriko · Frisby · KFC · El Corral</span>
+      <span>✦</span>
+      <span>Pollo Frito Colombiano</span>
+      <span>✦</span>
+      <span>Crujiente y Dorado</span>
+      <span>✦</span>
+      <span>Tradición desde 1950</span>
+      <span>✦</span>
+      <span>De Norte a Sur</span>
+      <span>✦</span>
+      <span>El Sabor Que Nos Une</span>
+      <span>✦</span>
+      <span>Kokoriko · Frisby · KFC · El Corral</span>
+      <span>✦</span>
+    </div>
+  </div>
+
+  <!-- ══ HISTORIA ══════════════════════════════════ -->
+  <section class="historia" id="historia">
+    <div class="historia-img-wrap">
+      <img src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?w=800&h=600&fit=crop&auto=format" alt="Pollo frito en papel café" />
+      <div class="historia-badge">
+        +70 años<br><small>de tradición</small>
+      </div>
+    </div>
+    <div class="historia-text">
+      <p class="section-tag">// Historia</p>
+      <h2 class="section-title">De las fritangas al <em>boom</em> nacional</h2>
+      <p>El pollo frito llegó a Colombia de la mano de las comunidades afrocolombianas del Caribe y el Pacífico, quienes lo preparaban con especias locales, ají dulce y hierbas propias de la región. Su técnica se mezclaba con las tradiciones culinarias españolas e indígenas.</p>
+      <p>A mediados del siglo XX, las fritangas de barrio popularizaron el pollo frito como alimento de cada día. En Medellín, Cali, Bogotá y Barranquilla, las fondas y puestos callejeros lo ofrecían con arepa, papa criolla y ají.</p>
+      <p>Hoy, el sector mueve billones de pesos y combina lo artesanal con grandes cadenas, manteniendo siempre ese sabor auténtico colombiano.</p>
+      <div class="historia-timeline">
+        <div class="tl-item">
+          <span class="tl-year">1950</span>
+          <p class="tl-desc">Las primeras fritangas callejeras en Medellín sirven pollo frito con hogao y patacón.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1968</span>
+          <p class="tl-desc">Nace Kokoriko en Medellín, la primera gran cadena colombiana de pollo.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">1977</span>
+          <p class="tl-desc">Frisby abre sus puertas en Pereira, revolucionando la fritura con su receta secreta.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2010s</span>
+          <p class="tl-desc">El boom del delivery y food trucks lleva el pollo frito artesanal a todo el país.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CIFRAS DEL MERCADO ══════════════════════ -->
+  <section class="cifras" id="cifras">
+    <p class="section-tag">// Mercado</p>
+    <h2 class="section-title">Colombia fríe <em>en grande</em></h2>
+    <p class="section-lead">El pollo frito es uno de los segmentos de comida rápida de mayor crecimiento en Colombia, con una expansión sostenida del 8% anual en los últimos cinco años.</p>
+    <div class="cifras-grid">
+      <div class="cifra-card">
+        <div class="cifra-icon">🍗</div>
+        <div class="cifra-num">$4.2B</div>
+        <div class="cifra-label">Facturación anual del sector en Colombia</div>
+        <div class="cifra-note">COP · Cifras 2025</div>
+      </div>
+      <div class="cifra-card">
+        <div class="cifra-icon">🏪</div>
+        <div class="cifra-num">12.400</div>
+        <div class="cifra-label">Puntos de venta activos en todo el país</div>
+        <div class="cifra-note">Formales + informales</div>
+      </div>
+      <div class="cifra-card">
+        <div class="cifra-icon">👨‍👩‍👧</div>
+        <div class="cifra-num">68%</div>
+        <div class="cifra-label">De hogares colombianos consumen pollo frito cada semana</div>
+        <div class="cifra-note">DANE · Encuesta de hogares</div>
+      </div>
+      <div class="cifra-card">
+        <div class="cifra-icon">📈</div>
+        <div class="cifra-num">+8%</div>
+        <div class="cifra-label">Crecimiento promedio anual del sector 2020–2025</div>
+        <div class="cifra-note">Vs. mercado restaurantes 4.1%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MARCAS PRINCIPALES ══════════════════════ -->
+  <section class="marcas" id="marcas">
+    <div class="marcas-header">
+      <div>
+        <p class="section-tag">// Principales marcas</p>
+        <h2 class="section-title">Los gigantes del <em>pollo</em> en Colombia</h2>
+      </div>
+      <p class="section-lead" style="max-width:320px; font-size:0.9rem;">Cadenas nacionales e internacionales que lideran el mercado colombiano de pollo frito.</p>
+    </div>
+    <div class="marcas-grid">
+      <div class="marca-card">
+        <div class="marca-card-img">
+          <img src="https://images.unsplash.com/photo-1586793783658-261cddf883ef?w=600&h=300&fit=crop&auto=format" alt="Kokoriko pollo frito" />
+        </div>
+        <div class="marca-card-body">
+          <span class="marca-badge">Nacional · Pionera</span>
+          <div class="marca-name">Kokoriko</div>
+          <p class="marca-desc">Fundada en Medellín en 1968, es la cadena colombiana de pollo más querida del país. Su pollo hornado y frito con papas y ensalada es un ícono gastronómico. Más de 200 puntos de venta en todo el territorio nacional.</p>
+          <div class="marca-presencia">🗺 Presencia en 25 departamentos</div>
+        </div>
+      </div>
+      <div class="marca-card">
+        <div class="marca-card-img">
+          <img src="https://images.unsplash.com/photo-1652545296821-09a023a9fd08?w=600&h=300&fit=crop&auto=format" alt="Frisby pollo" />
+        </div>
+        <div class="marca-card-body">
+          <span class="marca-badge">Nacional · Eje Cafetero</span>
+          <div class="marca-name">Frisby</div>
+          <p class="marca-desc">Nacida en Pereira en 1977, Frisby conquistó el paladar colombiano con su receta secreta de especias y su técnica de fritura única. Reconocida por su pollo crujiente y sus salsas artesanales. Referente del Eje Cafetero.</p>
+          <div class="marca-presencia">🗺 Más de 220 restaurantes en Colombia</div>
+        </div>
+      </div>
+      <div class="marca-card">
+        <div class="marca-card-img">
+          <img src="https://images.unsplash.com/photo-1588923930957-81c81fd6262b?w=600&h=300&fit=crop&auto=format" alt="KFC Colombia" />
+        </div>
+        <div class="marca-card-body">
+          <span class="marca-badge">Internacional</span>
+          <div class="marca-name">KFC Colombia</div>
+          <p class="marca-desc">Kentucky Fried Chicken llegó a Colombia en los años 90 y adaptó parte de su menú al gusto local. Con la "Cajita Feliz" y la "Canasta Familiar", logró posicionarse como la cadena internacional de pollo más grande del país.</p>
+          <div class="marca-presencia">🗺 Más de 180 restaurantes en Colombia</div>
+        </div>
+      </div>
+      <div class="marca-card">
+        <div class="marca-card-img">
+          <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=600&h=300&fit=crop&auto=format" alt="Pollos Balú" />
+        </div>
+        <div class="marca-card-body">
+          <span class="marca-badge">Regional · Bogotá</span>
+          <div class="marca-name">Pollos Balú</div>
+          <p class="marca-desc">Cadena bogotana famosa por su pollo al carbón y a la brasa con adobo especial. Se popularizó en los barrios populares de la capital y hoy tiene presencia en toda Cundinamarca, conservando su carácter de negocio familiar.</p>
+          <div class="marca-presencia">🗺 60+ puntos en Bogotá y Cundinamarca</div>
+        </div>
+      </div>
+      <div class="marca-card">
+        <div class="marca-card-img">
+          <img src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?w=600&h=300&fit=crop&auto=format" alt="Pollos Mario" />
+        </div>
+        <div class="marca-card-body">
+          <span class="marca-badge">Regional · Caribe</span>
+          <div class="marca-name">Pollo Olímpico</div>
+          <p class="marca-desc">Marca barranquillera con arraigo en la Costa Caribe colombiana. Su estilo de fritura con influencia costeña, aliñado con limón y ajo, lo distingue del resto. Acompañado siempre con arroz de coco y patacón pisao.</p>
+          <div class="marca-presencia">🗺 Costa Caribe y sur del Caribe</div>
+        </div>
+      </div>
+      <div class="marca-card">
+        <div class="marca-card-img">
+          <img src="https://images.unsplash.com/photo-1606065284148-2fa68ffd3a3b?w=600&h=300&fit=crop&auto=format" alt="Fritangas artesanales" />
+        </div>
+        <div class="marca-card-body">
+          <span class="marca-badge">Informal · Todo el país</span>
+          <div class="marca-name">Fritangas de Barrio</div>
+          <p class="marca-desc">El sector informal sigue siendo el mayor en volumen: miles de emprendedores ofrecen pollo frito en fritangas, fondas y puestos móviles. Representan el 40% del mercado total y sostienen a cientos de miles de familias colombianas.</p>
+          <div class="marca-presencia">🗺 Presencia en los 32 departamentos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RECETA TRADICIONAL ══════════════════════ -->
+  <section class="receta" id="receta">
+    <div>
+      <p class="section-tag">// Receta</p>
+      <h2 class="section-title">Pollo frito<em> colombiano</em> tradicional</h2>
+      <p class="section-lead">La receta auténtica de las abuelas: marinado con especias criollas, limón y ajo, empanizado con harina de maíz y frito en aceite bien caliente.</p>
+
+      <div class="receta-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <p class="step-text"><strong>Marinar:</strong> Mezcla el ajo machacado, comino, sal, pimienta, zumo de limón, color y paprika. Frota bien los trozos de pollo y deja reposar mínimo 2 horas en la nevera (lo ideal es toda la noche).</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p class="step-text"><strong>Empanizar:</strong> En un tazón fondo, bate los huevos con un poco de leche. En otro, mezcla harina de maíz, harina de trigo, sal y paprika. Pasa cada trozo por el huevo y luego por la mezcla de harinas dos veces.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p class="step-text"><strong>Freír:</strong> Calienta aceite vegetal a 175°C en una sartén profunda. Fríe el pollo en tandas sin amontonar, 12–14 minutos dando vuelta a la mitad. La temperatura interna debe llegar a 74°C.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p class="step-text"><strong>Escurrir y servir:</strong> Reposa 3 minutos sobre papel absorbente. Sirve con papas criollas, arepa de choclo, ají de maní y patacón. El hogao de tomate es el acompañante clásico.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="receta-ingredients">
+      <h3>🧂 Ingredientes (4 personas)</h3>
+      <ul class="ingredient-list">
+        <li>Pollo troceado (muslos y piernas) <span class="ingredient-amt">1.2 kg</span></li>
+        <li>Ajo machacado <span class="ingredient-amt">6 dientes</span></li>
+        <li>Zumo de limón criollo <span class="ingredient-amt">3 limones</span></li>
+        <li>Comino molido <span class="ingredient-amt">1 cdta</span></li>
+        <li>Color / Triguisar <span class="ingredient-amt">1 cdta</span></li>
+        <li>Paprika ahumada <span class="ingredient-amt">½ cdta</span></li>
+        <li>Sal y pimienta negra <span class="ingredient-amt">Al gusto</span></li>
+        <li>Harina de maíz amarillo <span class="ingredient-amt">1½ tazas</span></li>
+        <li>Harina de trigo <span class="ingredient-amt">½ taza</span></li>
+        <li>Huevos batidos <span class="ingredient-amt">2 unidades</span></li>
+        <li>Leche entera <span class="ingredient-amt">3 cdas</span></li>
+        <li>Aceite vegetal para freír <span class="ingredient-amt">Suficiente</span></li>
+      </ul>
+      <br />
+      <h3>🍽 Para acompañar</h3>
+      <ul class="ingredient-list" style="margin-top:0.5rem">
+        <li>Papa criolla</li>
+        <li>Arepa de choclo</li>
+        <li>Patacón pisao</li>
+        <li>Hogao de tomate y cebolla</li>
+        <li>Ají de maní o ají picante</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ REGIONES ══════════════════════════════════ -->
+  <section class="regiones" id="regiones">
+    <p class="section-tag">// Regiones</p>
+    <h2 class="section-title">De cada región, <em>un sabor</em> único</h2>
+    <p class="section-lead">Cada zona de Colombia tiene su propia versión del pollo frito, adaptada con ingredientes y técnicas locales que lo hacen inconfundible.</p>
+    <div class="regiones-grid">
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=700&h=400&fit=crop&auto=format" alt="Medellín" />
+        <div class="region-overlay"></div>
+        <div class="region-info">
+          <div class="region-city">Medellín &amp; Antioquia</div>
+          <div class="region-specialty">Pollo frito con chicharrón y fríjoles</div>
+          <p class="region-desc">El "Bandeja Paisa" incluye pollo frito como componente estrella. La tradición antioqueña lo adoba con comino y lo sirve con arroz blanco, fríjoles, tajadas y hogao. Kokoriko es su embajadora mundial.</p>
+        </div>
+      </div>
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1586793783658-261cddf883ef?w=700&h=400&fit=crop&auto=format" alt="Costa Caribe" />
+        <div class="region-overlay"></div>
+        <div class="region-info">
+          <div class="region-city">Costa Caribe</div>
+          <div class="region-specialty">Pollo frito con arroz de coco y patacón</div>
+          <p class="region-desc">En Barranquilla, Cartagena y Santa Marta, el pollo frito lleva limón tahití, ají caballero y se acompaña con arroz de coco, ensalada de repollo y patacón pisao. Sabor del Caribe en cada bocado.</p>
+        </div>
+      </div>
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1652545296821-09a023a9fd08?w=700&h=400&fit=crop&auto=format" alt="Bogotá" />
+        <div class="region-overlay"></div>
+        <div class="region-info">
+          <div class="region-city">Bogotá &amp; Cundinamarca</div>
+          <div class="region-specialty">Pollo frito con papa sabanera y ají rojo</div>
+          <p class="region-desc">La capital funde tradiciones de todo el país. Las fritangas del sur de Bogotá son legendarias: pollo frito con papa sabanera, morcilla, chorizo santarrosano y ají negro casero. Gastronomía del pueblo.</p>
+        </div>
+      </div>
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1426869981800-95ebf51ce900?w=700&h=400&fit=crop&auto=format" alt="Eje Cafetero" />
+        <div class="region-overlay"></div>
+        <div class="region-info">
+          <div class="region-city">Eje Cafetero</div>
+          <div class="region-specialty">Frisby style: especias únicas y extra crujiente</div>
+          <p class="region-desc">Pereira, Armenia y Manizales son la cuna de Frisby, la cadena que revolucionó la fritura colombiana. Su pollo se distingue por una mezcla secreta de 11 especias y una textura crujiente incomparable que enamoró al país entero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRECIOS Y TENDENCIAS ════════════════════ -->
+  <section class="precios" id="precios">
+    <p class="section-tag">// Precios 2025</p>
+    <h2 class="section-title">¿Cuánto cuesta el <em>placer</em>?</h2>
+    <p class="section-lead">Los precios varían según el canal y la ciudad, pero el pollo frito sigue siendo una de las proteínas más accesibles para los colombianos.</p>
+    <div class="precios-grid">
+      <div class="precio-card">
+        <div class="precio-tipo">Sector informal</div>
+        <div class="precio-nombre">Fritanga de barrio</div>
+        <div class="precio-rango">$4.500 – $8.000</div>
+        <div class="precio-por">por presa individual</div>
+        <ul class="precio-items">
+          <li>Presa de pollo + papa + arepa</li>
+          <li>Salsa casera incluida</li>
+          <li>Disponible en todo el país</li>
+          <li>Horario nocturno en muchos casos</li>
+        </ul>
+      </div>
+      <div class="precio-card destacado">
+        <div class="precio-destacado-badge">Más popular</div>
+        <div class="precio-tipo">Cadena nacional</div>
+        <div class="precio-nombre">Kokoriko / Frisby</div>
+        <div class="precio-rango">$18.000 – $42.000</div>
+        <div class="precio-por">por combo individual</div>
+        <ul class="precio-items">
+          <li>2 presas + papas + bebida</li>
+          <li>Ensalada y aderezos</li>
+          <li>Combos familiares disponibles</li>
+          <li>Delivery y drive-through</li>
+          <li>Aplicación móvil con descuentos</li>
+        </ul>
+      </div>
+      <div class="precio-card">
+        <div class="precio-tipo">Cadena internacional</div>
+        <div class="precio-nombre">KFC · Smashburger</div>
+        <div class="precio-rango">$25.000 – $55.000</div>
+        <div class="precio-por">por combo individual</div>
+        <ul class="precio-items">
+          <li>Pollo original o extra crujiente</li>
+          <li>Balde familiar hasta 16 piezas</li>
+          <li>Salsas importadas</li>
+          <li>Centros comerciales y zonas premium</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIOS ════════════════════════════════ -->
+  <section class="testimonios" id="testimonios">
+    <p class="section-tag">// Lo que dicen</p>
+    <h2 class="section-title">Colombianos que <em>aman</em> el pollo</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Llevo 20 años vendiendo pollo frito en el barrio Belén de Medellín. Es mi sustento y el de mis hijos. La gente hace fila desde las 6 pm. El pollo frito nos une a todos."</p>
+        <div class="test-author">
+          <div class="test-avatar"><img src="https://images.unsplash.com/photo-1781585809212-471d67b9f479?w=100&h=100&fit=crop&auto=format" alt="Doña Carmen" /></div>
+          <div>
+            <div class="test-name">Doña Carmen Restrepo</div>
+            <div class="test-role">Fritanguera, Medellín · 20 años de experiencia</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"El pollo de Frisby es un ritual en Pereira. Cuando llegan visitas de Bogotá, lo primero que hacemos es llevarlos a comer un Frisby. Nada le gana a ese sabor crujiente y especiado."</p>
+        <div class="test-author">
+          <div class="test-avatar"><img src="https://images.unsplash.com/photo-1787664374785-90e2f06ed2a9?w=100&h=100&fit=crop&auto=format" alt="Santiago" /></div>
+          <div>
+            <div class="test-name">Santiago Ospina</div>
+            <div class="test-role">Empresario pereirano · Fan de Frisby desde 1989</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Abrí mi negocio de pollo frito en Barranquilla hace 3 años con una inversión inicial de $4 millones. Hoy factura $35 millones mensuales. El secreto: buena sazón y amor propio."</p>
+        <div class="test-author">
+          <div class="test-avatar"><img src="https://images.unsplash.com/photo-1606065284148-2fa68ffd3a3b?w=100&h=100&fit=crop&auto=format" alt="Valentina" /></div>
+          <div>
+            <div class="test-name">Valentina Mendoza</div>
+            <div class="test-role">Emprendedora, Barranquilla · Negocio familiar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ DATOS DE INTERÉS ════════════════════════ -->
+  <section style="background:var(--sand); padding:5rem 8vw;">
+    <p class="section-tag">// ¿Sabías que?</p>
+    <h2 class="section-title">Curiosidades del <em>pollo</em> frito colombiano</h2>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; margin-top:3rem;">
+      <div style="background:var(--white); border-radius:8px; padding:2rem; border-left:4px solid var(--gold);">
+        <div style="font-size:2rem; margin-bottom:0.75rem;">🐔</div>
+        <h3 style="font-family:var(--font-display); font-size:1.1rem; margin-bottom:0.5rem;">Colombia produce 1.9 millones de ton. de pollo al año</h3>
+        <p style="font-size:0.88rem; color:var(--brown-md); line-height:1.6;">El sector avícola colombiano es uno de los más sólidos de Latinoamérica. El pollo es la proteína animal más consumida, superando a la res y el cerdo.</p>
+      </div>
+      <div style="background:var(--white); border-radius:8px; padding:2rem; border-left:4px solid var(--crimson);">
+        <div style="font-size:2rem; margin-bottom:0.75rem;">🌶</div>
+        <h3 style="font-family:var(--font-display); font-size:1.1rem; margin-bottom:0.5rem;">El ají es el condimento más usado en el marinadod</h3>
+        <p style="font-size:0.88rem; color:var(--brown-md); line-height:1.6;">El ají dulce costeño, el ají caballero y la ají chombo son los más populares para dar sabor. El 82% de las recetas caseras incluyen algún tipo de ají en el adobo.</p>
+      </div>
+      <div style="background:var(--white); border-radius:8px; padding:2rem; border-left:4px solid var(--brown-md);">
+        <div style="font-size:2rem; margin-bottom:0.75rem;">📱</div>
+        <h3 style="font-family:var(--font-display); font-size:1.1rem; margin-bottom:0.5rem;">El delivery de pollo creció 340% post pandemia</h3>
+        <p style="font-size:0.88rem; color:var(--brown-md); line-height:1.6;">Plataformas como Rappi y Domicilios.com vieron un crecimiento explosivo en pedidos de pollo frito. Hoy el 38% de las ventas se hacen a través de aplicaciones móviles.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA / CONTACTO ══════════════════════════ -->
+  <section class="cta-section" id="contacto">
+    <h2>¿Quieres montar tu propio <em>negocio</em> de pollo?</h2>
+    <p>Te asesoramos gratis sobre cómo abrir tu negocio de pollo frito en Colombia — permisos, inversión inicial, proveedores de insumos y estrategias de venta.</p>
+    <form class="cta-form" onsubmit="handleForm(event)">
+      <input type="email" placeholder="Tu correo electrónico" required id="cta-email" />
+      <button type="submit" class="btn-white">Quiero asesoría gratis</button>
+    </form>
+    <p id="form-msg" style="margin-top:1rem; color:var(--gold-lt); font-size:0.9rem; display:none;">¡Recibido! Te contactaremos pronto. 🍗</p>
+  </section>
+
+  <!-- ══ FOOTER ══════════════════════════════════ -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🍗 PolloCol</div>
+        <p class="footer-tagline">El portal de referencia sobre el mercado y la cultura del pollo frito en Colombia. Información, recetas y tendencias del sector.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contenidos</h4>
+        <ul>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#cifras">Cifras del mercado</a></li>
+          <li><a href="#marcas">Principales marcas</a></li>
+          <li><a href="#receta">Receta tradicional</a></li>
+          <li><a href="#regiones">Regiones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Emprender</h4>
+        <ul>
+          <li><a href="#contacto">Asesoría gratuita</a></li>
+          <li><a href="#precios">Análisis de precios</a></li>
+          <li><a href="#testimonios">Casos de éxito</a></li>
+          <li><a href="#contacto">Directorio de proveedores</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:info@pollocol.co">info@pollocol.co</a></li>
+          <li><a href="#">Bogotá, Colombia</a></li>
+          <li><a href="#">Instagram @pollocol</a></li>
+          <li><a href="#">TikTok @pollocolco</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 PolloCol. Información con fines educativos y comerciales.</p>
+      <p>Hecho con ❤️ y mucho pollo en Colombia 🇨🇴</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleForm(e) {
+      e.preventDefault();
+      const email = document.getElementById('cta-email').value;
+      if (email) {
+        document.getElementById('form-msg').style.display = 'block';
+        document.getElementById('cta-email').value = '';
+      }
+    }
+
+    // Smooth nav link click animations
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.marca-card, .cifra-card, .test-card, .region-card, .precio-card, .tl-item').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

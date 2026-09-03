@@ -46,11 +46,20 @@
     #cookie-box {
       position: relative; z-index: 2;
       background: var(--white); border-radius: 12px;
-      padding: 3rem 2.5rem 2.5rem; max-width: 560px; width: 100%;
-      box-shadow: 0 32px 80px rgba(0,0,0,.45);
-      border-top: 5px solid var(--crimson); text-align: center;
+      padding: 1.35rem 1.5rem 1.25rem; max-width: 390px; width: calc(100% - 1.5rem);
+      box-shadow: 0 24px 60px rgba(0,0,0,.38);
+      border-top: 4px solid var(--crimson); text-align: center;
       animation: popIn 0.38s cubic-bezier(0.34,1.56,0.64,1) both;
     }
+    #cookie-box .cookie-icon { font-size: 1.5rem; }
+    #cookie-box h2 { font-size: 1.35rem; margin: .35rem 0 .45rem; }
+    #cookie-box > p { font-size: .82rem; line-height: 1.45; margin: 0; }
+    #cookie-box .cookie-detail { display: none; }
+    #cookie-box #btn-accept-cookies {
+      padding: .72rem 1rem; font-size: .88rem; margin: .8rem 0 .5rem;
+    }
+    #cookie-box .cookie-legal { font-size: .62rem; line-height: 1.35; margin: 0; }
+#cookie-box .cookie-responsable { font-size: .58rem; line-height: 1.2; opacity: .78; display: inline-block; margin-top: .2rem; }
     @keyframes popIn {
       from { opacity: 0; transform: scale(0.88) translateY(24px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
@@ -317,24 +326,23 @@
   <div id="cookie-blur-bg"></div>
   <div id="cookie-box">
     <span class="cookie-icon">🍪</span>
-    <h2>Usamos <em>cookies</em> en este sitio</h2>
-    <p>Para ofrecerte la mejor experiencia posible, este sitio utiliza cookies propias y de terceros. Necesitamos tu autorización para continuar navegando.</p>
+    <h2>Usamos <em>cookies</em></h2>
+    <p>Usamos cookies para mejorar tu experiencia y analizar el uso del sitio.</p>
     <div class="cookie-detail">
       <p>
         <strong>¿Para qué usamos cookies?</strong><br>
-        Usamos cookies analíticas (Google Analytics) para entender cómo se usa el sitio, y cookies publicitarias (Google Ads) para mostrar anuncios relevantes. Ninguna cookie almacena datos personales sensibles.<br><br>
-        <strong>Responsable:</strong> JAIME GARCIA RIVERA — info@polloonline.co
+        Usamos cookies analíticas y publicitarias para mejorar el sitio y mostrar contenido relevante.
       </p>
     </div>
     <button id="btn-accept-cookies" onclick="acceptCookies()">
-      ✓ &nbsp; Aceptar todas las cookies y continuar
+      ✓ &nbsp; Aceptar y continuar
     </button>
     <p class="cookie-legal">
-      Al aceptar confirmas haber leído nuestra
+      Al continuar, aceptas nuestra
       <a href="#politicas">Política de Privacidad</a> y
-      <a href="#politicas">Política de Cookies</a>.<br>
-      Puedes consultar las políticas completas al final de esta página.
-    </p>
+      <a href="#politicas">Política de Cookies</a>.
+    <br><span class="cookie-responsable">Responsable: JAIME GARCIA RIVERA — info@polloonline.co</span>
+</p>
   </div>
 </div>
 
@@ -706,9 +714,9 @@
       <p class="owner-sub">Titular y operador de PolloCol — Portal informativo sobre el pollo frito en Colombia.</p>
     </div>
     <div class="owner-info" style="flex:1;min-width:220px;">
-      <span>✉ info@polloonline.co</span>
+      <span>✉ info@pollocol.co</span>
       <span>📍 Colombia</span>
-      <span>🌐 polloonline.co</span>
+      <span>🌐 pollocol.co</span>
       <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--gold);">Datos disponibles bajo solicitud</span>
     </div>
   </div>
@@ -723,11 +731,11 @@
   <div id="pol-privacidad" class="pol-content visible">
     <h3>Política de Privacidad</h3>
     <p class="pol-fecha">Última actualización: 1 de septiembre de 2025 — Responsable: JAIME GARCIA RIVERA</p>
-    <div class="pol-section"><h4>1. Responsable del tratamiento</h4><p>El responsable es <strong>JAIME GARCIA RIVERA</strong>, titular de PolloCol. Contacto: <strong>info@polloonline.co</strong></p></div>
+    <div class="pol-section"><h4>1. Responsable del tratamiento</h4><p>El responsable es <strong>JAIME GARCIA RIVERA</strong>, titular de PolloCol. Contacto: <strong>info@pollocol.co</strong></p></div>
     <div class="pol-section"><h4>2. Datos que recopilamos</h4><p>Recopilamos datos que usted proporciona voluntariamente (nombre y correo) y datos de navegación anónimos mediante Google Analytics. No recopilamos datos sensibles.</p></div>
     <div class="pol-section"><h4>3. Finalidad del tratamiento</h4><p>Sus datos se usan para: (a) responder consultas; (b) mejorar contenidos y experiencia de usuario; (c) cumplir con obligaciones legales en Colombia.</p></div>
     <div class="pol-section"><h4>4. Base legal (Ley 1581 de 2012)</h4><p>El tratamiento se realiza con base en el consentimiento expreso del titular, conforme a la Ley Estatutaria 1581 de 2012 y el Decreto 1377 de 2013 de Colombia.</p></div>
-    <div class="pol-section"><h4>5. Derechos del titular</h4><p>Tiene derecho a conocer, actualizar, rectificar y suprimir sus datos. Escriba a <strong>info@polloonline.co</strong>. Responderemos en máximo 10 días hábiles.</p></div>
+    <div class="pol-section"><h4>5. Derechos del titular</h4><p>Tiene derecho a conocer, actualizar, rectificar y suprimir sus datos. Escriba a <strong>info@pollocol.co</strong>. Responderemos en máximo 10 días hábiles.</p></div>
     <div class="pol-section"><h4>6. Seguridad</h4><p>JAIME GARCIA RIVERA implementa medidas técnicas y organizativas para proteger sus datos contra acceso no autorizado. Este sitio usa conexión HTTPS cifrada.</p></div>
   </div>
 
@@ -766,7 +774,7 @@
     <div class="pol-section"><h4>Publicidad personalizada</h4><p>Google usa cookies para mostrar anuncios relevantes. Puede desactivar la publicidad personalizada en <strong>www.aboutads.info</strong> o en <strong>adssettings.google.com</strong>.</p></div>
     <div class="pol-section"><h4>Cumplimiento de Políticas de Google Ads</h4><p>Todo el contenido publicitario cumple con las Políticas del Programa de Google Ads. <strong>JAIME GARCIA RIVERA</strong> se compromete a no publicar anuncios engañosos ni de contenido prohibido.</p></div>
     <div class="pol-section"><h4>Contenido patrocinado</h4><p>Cuando algún contenido sea patrocinado será claramente identificado con la etiqueta <strong>"Contenido patrocinado"</strong> o <strong>"Publicidad"</strong>, diferenciándolo del contenido editorial.</p></div>
-    <div class="pol-section"><h4>Contacto sobre publicidad</h4><p>Escriba a <strong>info@polloonline.co</strong> con el asunto "Publicidad". Responsable: <strong>JAIME GARCIA RIVERA</strong>.</p></div>
+    <div class="pol-section"><h4>Contacto sobre publicidad</h4><p>Escriba a <strong>info@pollocol.co</strong> con el asunto "Publicidad". Responsable: <strong>JAIME GARCIA RIVERA</strong>.</p></div>
   </div>
 </section>
 
